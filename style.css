@@ -1,0 +1,234 @@
+body {
+    background-color: rgb(3, 4, 15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Press Start 2P', cursive; /* Using pixel art font */
+    color: white; /* Default text color */
+    text-align: center;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+* {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.music-vinyls {
+            display: flex;
+            gap: 25px;
+            margin-top: 15px;
+            padding: 10px 0;
+        }
+
+        .vinyl-record {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+        }
+
+        .vinyl-cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 80px;
+            z-index: 2;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+            transition: transform 0.5s ease;
+            background: #222;
+        }
+
+        .album-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            image-rendering: crisp-edges;
+            image-rendering: pixelated;
+        }
+
+        .vinyl-disc {
+            position: absolute;
+            top: 15px;
+            left: 40px;
+            width: 70px;
+            height: 70px;
+            background: radial-gradient(circle, #1a1a1a 20%, #333 21%, #333 28%, #1a1a1a 29%, #1a1a1a 36%, #333 37%, #333 44%, #1a1a1a 45%);
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0;
+            transition: all 0.5s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .vinyl-disc::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            border: 2px solid #444;
+        }
+
+        .vinyl-record:hover .vinyl-cover {
+            transform: translateX(-25px);
+        }
+
+        .vinyl-record:hover .vinyl-disc {
+            opacity: 1;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .profile-layout {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .cat-gif {
+                width: 180px;
+            }
+
+            .instagram-handle {
+                font-size: 1.4em;
+                text-align: center;
+                width: 100%;
+            }
+
+            .details-column {
+                align-items: center;
+            }
+
+            .languages-icons {
+                gap: 10px;
+                justify-content: center;
+            }
+
+            .lang-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .music-vinyls {
+                gap: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .vinyl-record {
+                width: 70px;
+                height: 70px;
+            }
+
+            .vinyl-cover {
+                width: 70px;
+                height: 70px;
+            }
+
+            .vinyl-disc {
+                width: 60px;
+                height: 60px;
+                top: 5px;
+                left: 35px;
+            }
+
+            .vinyl-record:hover .vinyl-cover {
+                transform: translateX(-20px);
+            }
+        }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between elements */
+    padding: 20px;
+}
+
+.profile-layout {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Space between cat GIF and the text/icons column */
+}
+
+.details-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text and icons to the left within their column */
+    gap: 15px; /* Space between handle and icons */
+}
+
+.cat-gif {
+    width: 250px; /* Adjust size as needed */
+    height: auto;
+    pointer-events: none;
+    image-rendering: crisp-edges; /* Ensures pixel art quality on zoom */
+    image-rendering: pixelated; /* Ensures pixel art quality on zoom */
+}
+
+.instagram-handle {
+    font-size: 1.8em; /* Larger for handle */
+    margin: 0; /* Remove default paragraph margin */
+    color: white; /* Changed to white as requested */
+    text-shadow: 2px 2px 0px #505050; /* Darker shadow for white text */
+}
+
+.languages-icons {
+    display: flex;
+    gap: 15px; /* Space between language icons */
+    margin-top: 10px;
+    pointer-events: none;
+}
+
+.lang-icon {
+    width: 48px; /* Fixed size for pixel art icons */
+    height: 48px;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .profile-layout {
+        flex-direction: column; /* Stack cat GIF and text/icons vertically */
+        gap: 20px;
+    }
+
+    .cat-gif {
+        width: 180px;
+    }
+
+    .instagram-handle {
+        font-size: 1.4em;
+        text-align: center; /* Center handle when stacked */
+        width: 100%; /* Ensure it takes full width for centering */
+    }
+
+    .details-column {
+        align-items: center; /* Center handle and icons column when stacked */
+    }
+
+    .languages-icons {
+        gap: 10px; /* Reduce gap between icons on smaller screens */
+        justify-content: center; /* Center icons horizontally */
+    }
+
+    .lang-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
